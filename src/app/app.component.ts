@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { HttpService } from './services/http.service';
-import { DOMPurify } from 'dompurify';
+// import { DOMPurify } from 'dompurify';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   imageToShow: any;
   isImageLoaded: boolean;
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService, private domSanitizer: DomSanitizer) {}
 
   ngOnInit() {
     this.isImageLoaded = false;
@@ -42,8 +42,7 @@ export class AppComponent implements OnInit {
       this.isImageLoaded = true;
     }
     // load blob as data url , which can be used as src form img in html
-    // reader.readAsDataURL(image);
-    DOMPurify.sanitize(reader.readAsDataURL(image));
+    reader.readAsDataURL(image);
   }
   
 }
