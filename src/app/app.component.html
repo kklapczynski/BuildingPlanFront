@@ -1,23 +1,36 @@
-<div class="container-md">
+<div class="container-md my-2">
 
     <!-- <h1>Data from Outlook</h1> -->
     <!-- <button class="btn btn-primary" (click)="getCalendars()">Get calendars</button> -->
     <!-- <p>{{dataFromOutlook}}</p> -->
-    <div class="row">
-        <button class="btn btn-primary" (click)="getImage()">Get image</button>
+    <div class="row my-2" >
+        <div class="col text-center">   
+            <button class="btn btn-primary" (click)="getImage()">Get image</button>
+        </div>
+        
     </div>
-    <div class="row">
-            <img [src]="domSanitizer.bypassSecurityTrustResourceUrl(imageToShow) " alt="Downloaded from API image " class="img-fluid"
+    <div class="row my-2">
+            <object [data]="domSanitizer.bypassSecurityTrustResourceUrl(imageToShow) " width="100%" height="100%" alt="Downloaded from API image" class="mx-2"
                 *ngIf="isImageLoaded"
             >
+            </object>
+            <!-- TODO: change from <img src="..."> to direct svg in html
+                1. serve and download svg as a text
+                2. paste it in html  -->
+            <!-- <object> better than <img> cause <img> unables modyfications with JS -->
             <!--  when imageToShow is svg then angular prevents loading
             need to use DOM sanitizer: https://angular.io/api/platform-browser/DomSanitizer#description
             Preventing cross-site scripting (XSS) : https://angular.io/guide/security
             Above solution byPasses security, but it is not safe in case unknown source is used - as a rule svg should be properly sanitized:
             https://medium.com/angular-in-depth/warning-sanitizing-html-stripped-some-content-and-how-to-deal-with-it-properly-10ff77012d5a
-            
+            TODO: DOMPurify to be used
             -->
     </div>
+    <hr>
+    <div  [innerHTML]="imageToShow2" *ngIf="isImageLoaded">
+
+    </div>
+    
 
 </div>
 
