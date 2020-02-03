@@ -7,13 +7,16 @@
         <div class="col text-center">   
             <button class="btn btn-primary" (click)="getImage()">Get image</button>
         </div>
+        <div class="col text-center">   
+            <button class="btn btn-primary" (click)="getMapsList()">Get maps list</button>
+        </div>
         
     </div>
     <div class="row my-2">
-            <object [data]="domSanitizer.bypassSecurityTrustResourceUrl(imageToShow) " width="100%" height="100%" alt="Downloaded from API image" class="mx-2"
+            <!-- <object [data]="domSanitizer.bypassSecurityTrustResourceUrl(imageToShow) " width="100%" height="100%" alt="Downloaded from API image" class="mx-2"
                 *ngIf="isImageLoaded"
             >
-            </object>
+            </object> -->
             <!-- TODO: change from <img src="..."> to direct svg in html
                 1. serve and download svg as a text
                 2. paste it in html  -->
@@ -26,7 +29,14 @@
             TODO: DOMPurify to be used
             -->
     </div>
+    <div class="row my-2" *ngFor="let mapName of mapNames">
+        <div class="col text-center"    >
+            <a href="http://localhost:8001/testImage">{{mapName}}</a>
+        </div>
+        
+    </div>
     <hr>
+    <!-- https://www.chrisjmendez.com/2017/06/17/angular-dynamically-inserting-svg-into-an-element/ -->
     <div  [innerHTML]="imageToShow2" *ngIf="isImageLoaded">
 
     </div>

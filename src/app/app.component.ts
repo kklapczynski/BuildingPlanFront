@@ -10,9 +10,11 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class AppComponent implements OnInit {
   title = 'BuildingPlanFront';
   imageUrl = 'http://localhost:8001/testImage';
+  mapsListUrl = 'http://localhost:8001/testMapsList';
   imageToShow: any;
   imageToShow2: SafeHtml;
   isImageLoaded: boolean;
+  mapNames: String[];
 
   constructor(private httpService: HttpService, private domSanitizer: DomSanitizer) {}
 
@@ -21,6 +23,7 @@ export class AppComponent implements OnInit {
   }
 
   getImage() {
+    // TODO: add parameter with file name and add query param in http service
     this.httpService.getImage(this.imageUrl).subscribe(
       imageBlob => {
         // console.log(imageBlob);
@@ -30,6 +33,15 @@ export class AppComponent implements OnInit {
       },
       error => {
         console.log(error);
+      }
+    )
+  }
+
+  getMapsList() {
+    this.httpService.getMapsList(this.mapsListUrl).subscribe(
+      mapsNamesJson => {
+        this.mapNames = mapsNamesJson;
+        console.log(this.mapNames);
       }
     )
   }
@@ -64,5 +76,7 @@ export class AppComponent implements OnInit {
   
   // adding svg element to html
   // https://stackoverflow.com/questions/39582832/how-do-i-use-an-svg-tag-when-all-i-have-is-a-base64-string-for-the-image
+
+  
 
 }

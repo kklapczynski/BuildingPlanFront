@@ -24,4 +24,7 @@ export class HttpService {
     return this.http.get(imageUrl, {responseType: 'blob'});
   }
   
+  getMapsList(endPoint: string): Observable<any> {
+    return this.http.get(endPoint, {responseType: 'json'});
+  }
 }
