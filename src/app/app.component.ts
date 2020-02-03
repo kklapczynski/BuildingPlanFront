@@ -22,9 +22,10 @@ export class AppComponent implements OnInit {
     this.isImageLoaded = false;
   }
 
-  getImage() {
+  getImage(mapName?: string) {
     // TODO: add parameter with file name and add query param in http service
-    this.httpService.getImage(this.imageUrl).subscribe(
+    const url = mapName ? this.imageUrl + "?" + mapName : this.imageUrl;
+    this.httpService.getImage(url).subscribe(
       imageBlob => {
         // console.log(imageBlob);
         this.createImageFromBlob(imageBlob);
@@ -51,8 +52,6 @@ export class AppComponent implements OnInit {
     // set listener: when loaded save result in property
     reader.onload = () => { 
       this.imageToShow2 = this.domSanitizer.bypassSecurityTrustHtml(<string>reader.result) ;
-      console.log("imageToShow2:");
-      console.log(this.imageToShow2);
       this.isImageLoaded = true;
     }
     // load blob as data url , which can be used as src form img in html
@@ -76,7 +75,5 @@ export class AppComponent implements OnInit {
   
   // adding svg element to html
   // https://stackoverflow.com/questions/39582832/how-do-i-use-an-svg-tag-when-all-i-have-is-a-base64-string-for-the-image
-
-  
 
 }

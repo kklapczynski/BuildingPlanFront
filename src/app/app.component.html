@@ -30,17 +30,12 @@
             -->
     </div>
     <div class="row my-2" *ngFor="let mapName of mapNames">
-        <div class="col text-center"    >
-            <a href="http://localhost:8001/testImage">{{mapName}}</a>
+        <div class="col text-center">
+            <a (click)="getImage(mapName)">{{mapName}}</a>
         </div>
-        
     </div>
     <hr>
     <!-- https://www.chrisjmendez.com/2017/06/17/angular-dynamically-inserting-svg-into-an-element/ -->
-    <div  [innerHTML]="imageToShow2" *ngIf="isImageLoaded">
-
-    </div>
-    
-
+    <div  [innerHTML]="imageToShow2" *ngIf="isImageLoaded"></div>
 </div>
 
