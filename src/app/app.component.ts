@@ -77,29 +77,29 @@ export class AppComponent implements OnInit {
   // https://stackoverflow.com/questions/39582832/how-do-i-use-an-svg-tag-when-all-i-have-is-a-base64-string-for-the-image
 
   // show svg path title or id on mouse hover
-  showPathTitleOrId(event) {
-    if(event.target.tagName === 'path') {
-      const currentPath = event.target;
-    }
+  // showPathTitleOrId(event) {
+  //   if(event.target.tagName === 'path') {
+  //     const currentPath = event.target;
+  //   }
 
-  }
+  // }
 
-  setSvgPathOpacity(svgPath, opacityPercent: number) {
-    svgPath.setAttributeNS(null, 'opacity', `${opacityPercent}%`);
-  }
+  // setSvgPathOpacity(svgPath, opacityPercent: number) {
+  //   svgPath.setAttributeNS(null, 'opacity', `${opacityPercent}%`);
+  // }
 
-  onMouseOver(event) {
-    if(event.target.tagName === 'path') {
-      const currentPath = event.target;
-      this.setSvgPathOpacity(currentPath, 50);
-    }
+  // onMouseOver(event) {
+  //   if(event.target.tagName === 'path') {
+  //     const currentPath = event.target;
+  //     this.setSvgPathOpacity(currentPath, 50);
+  //   }
     
-  }
+  // }
 
-  onMouseOut(event) {
-    if(event.target.tagName === 'path') {
-      const currentPath = event.target;
-      this.setSvgPathOpacity(currentPath, 100);
-    }
-  }
+  // onMouseOut(event) {
+  //   if(event.target.tagName === 'path') {
+  //     const currentPath = event.target;
+  //     this.setSvgPathOpacity(currentPath, 100);
+  //   }
+  // }
 }
