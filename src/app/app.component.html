@@ -1,6 +1,6 @@
 <div class="container-md my-2">
    <div class="row my-2">
-      <app-svg-instead-of-html></app-svg-instead-of-html>
+      <app-svg-instead-of-html svgPathOpacity></app-svg-instead-of-html>
    </div>
     <!-- <h1>Data from Outlook</h1> -->
     <!-- <button class="btn btn-primary" (click)="getCalendars()">Get calendars</button> -->
@@ -118,7 +118,7 @@
     </svg>
     </div> -->
     <hr>
-    <div  [innerHTML]="imageToShow2" *ngIf="isImageLoaded" (click)="showPathTitleOrId($event)" (mouseover)="onMouseOver($event)"  (mouseout)="onMouseOut($event)">
+    <div  [innerHTML]="imageToShow2" *ngIf="isImageLoaded" svgPathOpacity>
     </div>
 </div>
 
