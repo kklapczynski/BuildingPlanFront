@@ -1,4 +1,4 @@
-import { Directive, OnInit, HostListener, HostBinding } from "@angular/core";
+import { Directive, HostListener } from "@angular/core";
 
 
 @Directive({
@@ -10,8 +10,6 @@ export class SvgPathOpacityDirective {
         svgPath.setAttributeNS(null, 'opacity', `${opacityPercent}%`);
       }
     
-    @HostBinding('style.opacity') opacity: string;
-
     @HostListener('mouseover',['$event']) onMouseOver(event: Event) {
         if(event.target['tagName'] === 'path') {
           const currentPath = event.target;

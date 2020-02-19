@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SvgInsteadOfHtmlComponent } from './svg-instead-of-html/svg-instead-of-html.component';
 import { SvgPathOpacityDirective } from './directives/svg-path-opacity.directive';
+import { SvgPathShowTitleIdDirective } from './directives/svg-path-show-title-id.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     SvgInsteadOfHtmlComponent,
-    SvgPathOpacityDirective
+    SvgPathOpacityDirective,
+    SvgPathShowTitleIdDirective
   ],
   imports: [
     BrowserModule,
