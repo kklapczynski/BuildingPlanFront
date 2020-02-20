@@ -1,6 +1,6 @@
 <div class="container-md my-2">
    <div class="row my-2">
-      <app-svg-instead-of-html svgPathOpacity svgPathShowTitleId></app-svg-instead-of-html>
+      <app-svg-instead-of-html svgPathOpacity svgAddCircleOnClick></app-svg-instead-of-html>
    </div>
     <!-- <h1>Data from Outlook</h1> -->
     <!-- <button class="btn btn-primary" (click)="getCalendars()">Get calendars</button> -->
@@ -118,7 +118,7 @@
     </svg>
     </div> -->
     <hr>
-    <div  [innerHTML]="imageToShow2" *ngIf="isImageLoaded" svgPathOpacity>
+    <div  [innerHTML]="imageToShow2" *ngIf="isImageLoaded" svgPathOpacity svgAddCircleOnClick>
     </div>
 </div>
 
@@ -126,6 +126,7 @@
 <!-- 
 1. DONE: directive for toggling opacity on mouseover/mouseout
 2. directive to display path title and id in the middle over path area
+2.1 DONE: add element on click in click location
 3. zoom on mouse scroll - check svg frameworks
 4. insert svg marking element on click - framework?
 5. insert object with geographical coordinates in the right spot on svg map
